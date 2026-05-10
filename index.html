@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Car Ki EMI Ko Calculate Krne Wala Calculator - Low Interest EMI Tool</title>
+    
+    <meta name="description" content="Best car ki emi ko calculate krne wala calculator. Check your monthly car loan payments, interest rates, and loan tenure easily with our free tool.">
+    <meta name="keywords" content="car ki emi ko calculate krne wala calculator, car loan emi calculator, car emi calculator india, vehicle loan emi tool">
+    <link rel="canonical" href="https://bharat67889.github.io/car-emi-calculator-pro/" />
+
+    <style>
+        :root { --primary: #2563eb; --secondary: #1e40af; --bg: #f8fafc; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--bg); margin: 0; padding: 20px; color: #1e293b; }
+        .container { max-width: 700px; margin: auto; background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; }
+        h1 { color: var(--secondary); font-size: 24px; text-align: center; margin-bottom: 25px; line-height: 1.4; }
+        .input-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 14px; }
+        input { width: 100%; padding: 12px; border: 2px solid #cbd5e1; border-radius: 10px; font-size: 16px; transition: 0.3s; box-sizing: border-box; }
+        input:focus { border-color: var(--primary); outline: none; background: #f0f7ff; }
+        button { width: 100%; padding: 15px; background: var(--primary); color: white; border: none; border-radius: 10px; font-size: 18px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        button:hover { background: var(--secondary); transform: translateY(-2px); }
+        .result-box { margin-top: 25px; padding: 20px; background: #ecfdf5; border-radius: 12px; border-left: 5px solid #10b981; display: none; }
+        .result-item { font-size: 18px; margin: 10px 0; display: flex; justify-content: space-between; }
+        .seo-section { margin-top: 40px; border-top: 1px solid #eee; padding-top: 20px; line-height: 1.8; color: #475569; font-size: 15px; }
+        .highlight { color: var(--primary); font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Car Ki EMI Ko Calculate Krne Wala Calculator</h1>
+    
+    <div class="input-group">
+        <label>Car Loan Amount (₹):</label>
+        <input type="number" id="loanAmount" placeholder="e.g. 500000">
+    </div>
+    <div class="input-group">
+        <label>Interest Rate (% Per Year):</label>
+        <input type="number" id="interestRate" step="0.1" placeholder="e.g. 8.5">
+    </div>
+    <div class="input-group">
+        <label>Loan Tenure (Years):</label>
+        <input type="number" id="tenure" placeholder="e.g. 5">
+    </div>
+    
+    <button onclick="calculateEMI()">Calculate Monthly EMI</button>
+
+    <div id="resultBox" class="result-box">
+        <div class="result-item">Monthly EMI: <span id="emiVal" class="highlight"></span></div>
+        <div class="result-item">Total Interest: <span id="totalInt" class="highlight"></span></div>
+        <div class="result-item">Total Payment: <span id="totalPay" class="highlight"></span></div>
+    </div>
+
+    <div class="seo-section">
+        <h2>Sabse Best Car Ki EMI Ko Calculate Krne Wala Calculator</h2>
+        <p>Nayi car lena har kisi ka sapna hota hai, par budget manage karna zaruri hai. Hamara <span class="highlight">car ki emi ko calculate krne wala calculator</span> aapko exact monthly installment batata hai taaki aap sahi decision le sakein.</p>
+        
+        <p>Agar aap confuse hain ki kaunsi car aapke budget mein fit baithegi, toh ye <strong>car ki emi ko calculate krne wala calculator</strong> use karein. Isme aap loan amount, interest rate, aur saal (tenure) daal kar turant result dekh sakte hain.</p>
+        
+        <h3>How to use Car Loan EMI Tool?</h3>
+        <ul>
+            <li>Apna total loan amount enter karein.</li>
+            <li>Bank jo interest rate de raha hai wo fill karein.</li>
+            <li>Kitne saal ke liye loan chahiye wo select karein.</li>
+        </ul>
+        <p>Ye tool aapko help karega mechanical engineering ki tarah precision ke saath apna finance plan karne mein.</p>
+    </div>
+</div>
+
+<script>
+    function calculateEMI() {
+        const P = parseFloat(document.getElementById('loanAmount').value);
+        const annualRate = parseFloat(document.getElementById('interestRate').value);
+        const years = parseFloat(document.getElementById('tenure').value);
+        
+        if (P > 0 && annualRate > 0 && years > 0) {
+            const r = annualRate / (12 * 100); // monthly interest rate
+            const n = years * 12; // total months
+            
+            // Formula: EMI = [P x r x (1+r)^n] / [(1+r)^n - 1]
+            const emi = (P * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+            const totalPayment = emi * n;
+            const totalInterest = totalPayment - P;
+
+            document.getElementById('emiVal').innerText = "₹" + emi.toLocaleString('en-IN', {maximumFractionDigits: 0});
+            document.getElementById('totalInt').innerText = "₹" + totalInterest.toLocaleString('en-IN', {maximumFractionDigits: 0});
+            document.getElementById('totalPay').innerText = "₹" + totalPayment.toLocaleString('en-IN', {maximumFractionDigits: 0});
+            
+            document.getElementById('resultBox').style.display = 'block';
+        } else {
+            alert("Bhai, sahi values toh daal!");
+        }
+    }
+</script>
+
+</body>
+</html>
